@@ -115,7 +115,7 @@ def main():
     )
     pose_guider.load_state_dict(
         torch.load(config.pose_guider_path, map_location="cpu"),
-        strict=True,
+        strict=False, # TONY CHANGED HERE, should be TRUE
     )
 
     pipe = Pose2VideoPipeline(

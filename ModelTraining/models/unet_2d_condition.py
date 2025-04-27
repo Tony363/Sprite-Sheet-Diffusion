@@ -20,13 +20,20 @@ from diffusers.models.embeddings import (
     ImageHintTimeEmbedding,
     ImageProjection,
     ImageTimeEmbedding,
-    PositionNet,
+    #PositionNet,
     TextImageProjection,
     TextImageTimeEmbedding,
     TextTimeEmbedding,
     TimestepEmbedding,
     Timesteps,
 )
+
+import diffusers
+if diffusers.__version__ >'0.25':
+    from diffusers.models.embeddings import GLIGENTextBoundingboxProjection as PositionNet
+else:
+    from diffusers.models.embeddings import PositionNet
+    
 from diffusers.models.modeling_utils import ModelMixin
 from diffusers.utils import (
     USE_PEFT_BACKEND,
